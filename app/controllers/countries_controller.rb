@@ -8,7 +8,7 @@ class CountriesController < ApplicationController
     if country.save
       render json: country, status: :created
     else
-      render country.errors, status: :unprocessable_entity
+      render json: country.errors, status: :unprocessable_entity
     end
   end
 
