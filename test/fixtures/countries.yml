@@ -2,6 +2,10 @@
 
 one:
   name: MyString
+  alpha2_code: MyString
+  alpha3_code: MyString
 
 two:
   name: MyString
+  alpha2_code: MyString
+  alpha3_code: MyString

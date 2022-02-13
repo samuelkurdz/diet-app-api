@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   # get 'users/index';
   resources :users, only: :index
-  resources :countries, only: :index
+  resources :countries, only: [:index, :create]
 end
