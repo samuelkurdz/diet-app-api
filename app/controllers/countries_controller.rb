@@ -4,7 +4,7 @@ class CountriesController < ApplicationController
   end
 
   def create
-    country = Country.new(countryParams);
+    country = Country.new(country_params);
     if country.save
       render json: country, status: :created
     else
@@ -12,7 +12,7 @@ class CountriesController < ApplicationController
     end
   end
 
-  def countryParams
+  def country_params
     params.require(:country).permit(:name, :alpha2_code, :alpha3_code);
   end
 end
