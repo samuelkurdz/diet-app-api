@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   # get 'users/index';
-  resources :users, only: :index
-  resources :countries, only: [:index, :create]
-end
+    namespace :v1 do
+      resources :users, only: :index
+      resources :countries, only: [:index, :create]
+    end
+  end
