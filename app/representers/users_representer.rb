@@ -5,7 +5,6 @@ class UsersRepresenter
 
   def as_json
     users.map do |user|
-      puts user
       {
         id: user.id,
         email: user.email,
