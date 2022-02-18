@@ -1,7 +1,9 @@
 module V1
   class UsersController < ApplicationController
     def index
-      render json: User.all
+      users = User.all
+
+      render json: UsersRepresenter.new(users).as_json
     end
 
     def create
