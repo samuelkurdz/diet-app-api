@@ -1,7 +1,8 @@
 module V1
   class UsersController < ApplicationController
     def index
-      users = User.all
+      # users = User.all
+      users = User.limit(params[:limit]).offset(params[:offset])
 
       render json: UsersRepresenter.new(users).as_json
     end
