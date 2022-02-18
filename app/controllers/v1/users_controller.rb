@@ -5,7 +5,7 @@ module V1
     end
 
     def create
-      user = User.new(user_params);
+      user = User.new(create_user_params);
       if user.save
         render json: user, status: :created
       else
@@ -13,9 +13,14 @@ module V1
       end
     end
 
+    def destroy
+      User.find(params[:id]).destroy!    
+      head :no_content
+    end
 
-    def user_params
-      params.require(:user).permit(:userName, :firstName, :lastName, :email, :password);
+
+    def create_user_params
+      params.require(:user).permit(:userName, :firstName, :lastName, :email, :password, :country_id);
     end
   end  
 end
