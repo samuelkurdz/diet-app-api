@@ -9,6 +9,8 @@ module V1
 
     def create
       user = User.new(create_user_params);
+      password = params[:password];
+      user.password = password;
       if user.save
         render json: UserRepresenter.new(user).as_json, status: :created
       else
@@ -23,7 +25,7 @@ module V1
 
 
     def create_user_params
-      params.require(:user).permit(:userName, :firstName, :lastName, :email, :password, :country_id);
+      params.require(:user).permit(:userName, :firstName, :lastName, :password, :email, :country_id);
     end
   end  
 end

@@ -7,5 +7,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :users, only: [:index, :create, :destroy]
       resources :countries, only: [:index, :create]
+      # resources :auth, only: [:create]
+      post 'auth', to: 'authentication#create'
     end
   end
