@@ -9,7 +9,7 @@ module V1
       # puts user.password === password
       p params.require(:username).inspect
       p params.require(:password).inspect
-      render json: {token: '1233'}, status: :created
+      render json: {token: '1234'}, status: :created
     end
 
     private
