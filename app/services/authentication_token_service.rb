@@ -3,6 +3,6 @@ class AuthenticationTokenService
   ALGORITHM_TYPE = 'HS256';
   def self.call(user_id)
     payload = { "user_id" => user_id }
-    token = JWT.encode payload, HMAC_SECRET, ALGORITHM_TYPE
+    token = JWT.encode payload, HMAC_SECRET, ALGORITHM_TYPE;
   end
 end

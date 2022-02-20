@@ -1,15 +1,13 @@
 module V1
-
   class AuthenticationController < ApplicationController
     rescue_from ActionController::ParameterMissing, with: :parameter_missing
     def create
-      # username = params[:username];
-      # password = params[:password]
-      # user = User.find_by(userName: username)
-      # puts user.password === password
-      p params.require(:username).inspect
-      p params.require(:password).inspect
-      render json: {token: '1234'}, status: :created
+      # password = params.require(:password);
+      username = params.require(:username);
+
+      user = User.find_by(userName: username);
+      token = AuthenticationTokenService.call(user.id)
+      render json: { token: token }, status: :created
     end
 
     private
