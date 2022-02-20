@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_02_17_115410) do
+ActiveRecord::Schema[7.0].define(version: 2022_02_20_110244) do
   create_table "countries", force: :cascade do |t|
     t.string "name"
     t.string "alpha2_code"
@@ -24,10 +24,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_17_115410) do
     t.string "firstName"
     t.string "lastName"
     t.string "email"
-    t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "country_id"
+    t.string "password_digest"
     t.index ["country_id"], name: "index_users_on_country_id"
   end
 
